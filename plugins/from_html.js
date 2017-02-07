@@ -472,7 +472,6 @@
 						}
 						renderer.x = temp;
 					} else if (cn.nodeName === "BR") {
-						renderer.y += fragmentCSS["font-size"] * renderer.pdf.internal.scaleFactor;
 						renderer.addText("\u2028", clone(fragmentCSS));
 					} else {
 						if (!elementHandledElsewhere(cn, renderer, elementHandlers)) {
@@ -793,13 +792,13 @@
 		maxLineHeight;
 
 		maxLineHeight = 0;
-		defaultFontSize = 12;
+		defaultFontSize = 11;
 
 		if (this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom < this.y + this.pdf.internal.getFontSize()) {
 			this.pdf.internal.write("ET", "Q");
 			this.pdf.addPage();
 			this.y = this.pdf.margins_doc.top;
-			this.pdf.internal.write("q", "BT 0 g", this.pdf.internal.getCoordinateString(this.x), this.pdf.internal.getVerticalCoordinateString(this.y), style.color, "Td");
+			this.pdf.internal.write("q", "BT 0 g", this.pdf.internal.getCoordinateString(this.x), this.pdf.internal.getVerticalCoordinateString(this.y), null, "Td");
 			//move cursor by one line on new page
 			maxLineHeight = Math.max(maxLineHeight, style["line-height"], style["font-size"]);
 			this.pdf.internal.write(0, (-1 * defaultFontSize * maxLineHeight).toFixed(2), "Td");
