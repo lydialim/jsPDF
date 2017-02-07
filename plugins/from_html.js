@@ -191,7 +191,7 @@
 		})(element);
 		css = {};
 		tmp = void 0;
-		css["font-family"] = ResolveFont(computedCSSElement("font-family")) || "times";
+		css["font-family"] = ResolveFont(computedCSSElement("font-family")) || "helvetica";
 		css["font-style"] = FontStyleMap[computedCSSElement("font-style")] || "normal";
 		css["text-align"] = TextAlignMap[computedCSSElement("text-align")] || "left";
 		tmp = FontWeightMap[computedCSSElement("font-weight")] || "normal";
